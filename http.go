@@ -104,10 +104,10 @@ func parseTwilioError(resp *http.Response) error {
 		return fmt.Errorf("invalid response body: %s", string(resBody))
 	}
 	return &rest.Error{
-		Title:      rerr.Message,
-		Type:       rerr.MoreInfo,
-		ID:         strconv.FormatInt(int64(rerr.Code), 10),
-		StatusCode: resp.StatusCode,
+		Title:  rerr.Message,
+		Type:   rerr.MoreInfo,
+		ID:     strconv.FormatInt(int64(rerr.Code), 10),
+		Status: resp.StatusCode,
 	}
 }
 
