@@ -244,7 +244,7 @@ func (c *Client) DeleteResource(ctx context.Context, pathPart string, sid string
 		return nil
 	}
 	rerr, ok := err.(*rest.Error)
-	if ok && rerr.StatusCode == http.StatusNotFound {
+	if ok && rerr.Status == http.StatusNotFound {
 		return nil
 	}
 	return err
